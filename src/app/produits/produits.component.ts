@@ -11,6 +11,6 @@ export class ProduitsComponent implements OnInit {
   constructor() {
     this.produits = ['PC Asus', 'Imprimante Epson', 'Tablette Samsung'];
   }
-
+  //this i added myself because it was required for onInit event
   ngOnInit(): void {}
 }
