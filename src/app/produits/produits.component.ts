@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Produit } from '../add-produit/model/produit.model';
+import { ProduitService } from '../services/produit.service';
 
 @Component({
   selector: 'app-produits',
@@ -6,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./produits.component.css'],
 })
 export class ProduitsComponent implements OnInit {
-  produits: string[];
+  produits: Produit[];
 
-  constructor() {
-    this.produits = ['PC Asus', 'Imprimante Epson', 'Tablette Samsung'];
+  constructor(private produitsService: ProduitService) {
+    this.produits = [];
   }
-  //this i added myself because it was required for onInit event
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+    this.produits = this.produitsService.listeProduites();
+  }
 }
